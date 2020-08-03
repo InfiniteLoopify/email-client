@@ -7,8 +7,8 @@ import os
 
 if __name__ == "__main__":
 
-    username = "testcn98@gmail.com"
-    password = "t1e2s3t4c5n6"
+    username = "abc"
+    password = "123"
     labels = ['"[Gmail]/All Mail"', 'Inbox',
               '"[Gmail]/Sent Mail"',  '"[Gmail]/Trash"']
 

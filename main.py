@@ -7,7 +7,7 @@ from pathlib import Path
 if __name__ == "__main__":
 
     username = "InfiniteLoopify@gmail.com"
-    password = "gdpx xzah khyv vurg"
+    password = ""
     labels = ['"[Gmail]/All Mail"', "Inbox", '"[Gmail]/Sent Mail"', '"[Gmail]/Trash"']
 
     receive = receive.Receive(username, password)

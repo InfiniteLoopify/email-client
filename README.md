@@ -1,5 +1,5 @@
 
-<!-- TODO: REPLACE ALL `repo_name`, `project_title`, `project_description`. FILL "about the project" and uncomment hidden sections if needed -->
+<!-- TODO: REPLACE ALL `email-client`, `email-client`, `An Email Client built using SMTP and IMAP Protocols`. FILL "about the project" and uncomment hidden sections if needed -->
 <a name="readme-top"></a>
 
 <!-- [![Contributors][contributors-shield]][contributors-url] -->
@@ -13,22 +13,22 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <!-- <a href="https://github.com/InfiniteLoopify/repo_name">
+  <!-- <a href="https://github.com/InfiniteLoopify/email-client">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
-<h3 align="center">project_title</h3>
+<h3 align="center">email-client</h3>
 
   <p align="center">
-    project_description
+    An Email Client built using SMTP and IMAP Protocols
     <br />
-    <a href="https://github.com/InfiniteLoopify/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/InfiniteLoopify/email-client"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <!-- <a href="https://github.com/InfiniteLoopify/repo_name">View Demo</a>
+    <!-- <a href="https://github.com/InfiniteLoopify/email-client">View Demo</a>
     · -->
-    <a href="https://github.com/InfiniteLoopify/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/InfiniteLoopify/email-client/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/InfiniteLoopify/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/InfiniteLoopify/email-client/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -74,41 +74,9 @@
 
 ### Built With
 
-* [![Javascript][Javascript-shield]][Javascript-url]
-* [![Vue][Vue-shield]][Vue-url]
-* [![Nuxt][Nuxt-shield]][Nuxt-url]
-* [![Tailwind][Tailwind-shield]][Tailwind-url]
-* [![Htmx][Htmx-shield]][Htmx-url]
-* [![Alpine.js][Alpine.js-shield]][Alpine.js-url]
-
 * [![Python][Python-shield]][Python-url]
-* [![Django][Django-shield]][Django-url]
-* [![Flask][Flask-shield]][Flask-url]
-* [![Fastapi][Fastapi-shield]][Fastapi-url]
 * [![Pyqt][Pyqt-shield]][Pyqt-url]
-* [![Pytest][Pytest-shield]][Pytest-url]
-* [![Selenium][Selenium-shield]][Selenium-url]
-* [![Playwright][Playwright-shield]][Playwright-url]
 
-* [![Numpy][Numpy-shield]][Numpy-url]
-* [![Pandas][Pandas-shield]][Pandas-url]
-* [![Matplotlib][Matplotlib-shield]][Matplotlib-url]
-* [![Scikitlearn][Scikitlearn-shield]][Scikitlearn-url]
-* [![Keras][Keras-shield]][Keras-url]
-* [![Jupyter][Jupyter-shield]][Jupyter-url]
-
-* [![Mysql][Mysql-shield]][Mysql-url]
-* [![Postgres][Postgres-shield]][Postgres-url]
-* [![Sqlite][Sqlite-shield]][Sqlite-url]
-* [![Redis][Redis-shield]][Redis-url]
-* [![Firebase][Firebase-shield]][Firebase-url]
-
-* [![Nginx][Nginx-shield]][Nginx-url]
-* [![Bash][Bash-shield]][Bash-url]
-* [![Docker][Docker-shield]][Docker-url]
-* [![Retool][Retool-shield]][Retool-url]
-* [![Aws][Aws-shield]][Aws-url]
-* [![Github_actions][Github_actions-shield]][Github_actions-url]
 
 
 
@@ -132,11 +100,11 @@ Windows
 1. Open Command Prompt.
 2. Clone the repository:
     ```bash
-    git clone https://github.com/InfiniteLoopify/repo_name.git
+    git clone https://github.com/InfiniteLoopify/email-client.git
     ```
 3. Navigate to the project directory:
     ```bash
-    cd repo_name
+    cd email-client
     ```
 4. Create a virtual environment and activate it:
     <details open>
@@ -187,7 +155,7 @@ To use the program, follow these steps:
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/InfiniteLoopify/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/InfiniteLoopify/email-client/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> 
 -->
@@ -237,7 +205,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Umair Shahab - [LinkedIn](linkedin-url) - umair.shahab.ahmed@gmail.com
 
-Project Link: [https://github.com/InfiniteLoopify/repo_name](https://github.com/InfiniteLoopify/repo_name)
+Project Link: [https://github.com/InfiniteLoopify/email-client](https://github.com/InfiniteLoopify/email-client)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -257,16 +225,16 @@ Project Link: [https://github.com/InfiniteLoopify/repo_name](https://github.com/
 [product-screenshot]: images/screenshot.png
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/InfiniteLoopify/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/InfiniteLoopify/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/InfiniteLoopify/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/InfiniteLoopify/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/InfiniteLoopify/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/InfiniteLoopify/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/InfiniteLoopify/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/InfiniteLoopify/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/InfiniteLoopify/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/InfiniteLoopify/repo_name/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/InfiniteLoopify/email-client.svg?style=for-the-badge
+[contributors-url]: https://github.com/InfiniteLoopify/email-client/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/InfiniteLoopify/email-client.svg?style=for-the-badge
+[forks-url]: https://github.com/InfiniteLoopify/email-client/network/members
+[stars-shield]: https://img.shields.io/github/stars/InfiniteLoopify/email-client.svg?style=for-the-badge
+[stars-url]: https://github.com/InfiniteLoopify/email-client/stargazers
+[issues-shield]: https://img.shields.io/github/issues/InfiniteLoopify/email-client.svg?style=for-the-badge
+[issues-url]: https://github.com/InfiniteLoopify/email-client/issues
+[license-shield]: https://img.shields.io/github/license/InfiniteLoopify/email-client.svg?style=for-the-badge
+[license-url]: https://github.com/InfiniteLoopify/email-client/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-%230a66c2.svg?style=for-the-badge&logo=linkedin
 [linkedin-url]: https://linkedin.com/in/UmairShahab
 

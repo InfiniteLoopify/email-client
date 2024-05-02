@@ -3,15 +3,18 @@ import receive
 import gui
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 if __name__ == "__main__":
 
-    username = "InfiniteLoopify@gmail.com"
-    password = ""
+    USERNAME = os.environ.get("USERNAME", "")
+    PASSWORD = os.environ.get("PASSWORD", "")
     labels = ['"[Gmail]/All Mail"', "Inbox", '"[Gmail]/Sent Mail"', '"[Gmail]/Trash"']
 
-    receive = receive.Receive(username, password)
-    send = send.Send(username, password)
+    receive = receive.Receive(USERNAME, PASSWORD)
+    send = send.Send(USERNAME, PASSWORD)
 
     msgs = []
     file_name = "data/messages.data"
@@ -27,7 +30,7 @@ if __name__ == "__main__":
     ex = gui.App(
         file_name=file_name,
         mails_lst=msgs,
-        my_mail=username,
+        my_mail=USERNAME,
         send=send,
         receive=receive,
         labels=labels,

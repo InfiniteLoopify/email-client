@@ -136,7 +136,18 @@ Windows
 
 To use the program, follow these steps:
 
-1. Make sure you have activated the virtual environment.
+1. Create an environment variable file `.env` in project directory:
+    ```bash
+    touch .env
+    ```
+2. Store your Credentials in your environment variable file:
+    ```bash
+    # Inside .env file
+    USERNAME=example@gmail.com
+    PASSWORD=my password
+    ```
+    If you are using Gmail account, you might want to create a new [Gmail App Password](https://myaccount.google.com/apppasswords). For more details, visit [here](https://support.google.com/mail/answer/185833?hl=en).
+3. Make sure you have activated the virtual environment.
 2. Run the program:
     ```bash
     python main.py

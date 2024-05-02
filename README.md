@@ -1,5 +1,5 @@
 
-<!-- TODO: REPLACE ALL `email-client`, `email-client`, `An Email Client built using SMTP and IMAP Protocols`. FILL "about the project" and uncomment hidden sections if needed -->
+<!-- TODO: REPLACE ALL `email-client`, `Email Client`, `An Email Client built using SMTP and IMAP Protocols`. FILL "about the project" and uncomment hidden sections if needed -->
 <a name="readme-top"></a>
 
 <!-- [![Contributors][contributors-shield]][contributors-url] -->
@@ -16,7 +16,7 @@
   <!-- <a href="https://github.com/InfiniteLoopify/email-client">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
-<h3 align="center">email-client</h3>
+<h3 align="center">Email Client</h3>
 
   <p align="center">
     An Email Client built using SMTP and IMAP Protocols

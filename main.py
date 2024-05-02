@@ -1,9 +1,8 @@
-import send
-import receive
-import gui
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+
+from src import send, receive, gui
 
 load_dotenv()
 

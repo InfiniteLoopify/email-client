@@ -31,9 +31,6 @@ from PyQt5.QtWidgets import (
     QMessageBox,
 )
 
-# import PyQt5.QtCore.Qt.WA_DeleteOnClose
-# from PyQt5 import *
-
 
 def read_from_file(filename):
     print(f"reading from file {filename}")
@@ -62,13 +59,13 @@ class App(QWidget):
         labels=None,
     ):
         super().__init__()
-        # self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+        if mails_lst is None:
+            mails_lst = []
+
         self.sendClass = send
         self.receiveClass = receive
         self.labelsClass = labels
         self.mails_lst = mails_lst
-        if mails_lst is None:
-            mails_lst = []
         self.mails = mails_lst[1]
         self.my_mail = my_mail
         self.labels = ["All", "Inbox", "Sent", "Trash"]
@@ -89,13 +86,7 @@ class App(QWidget):
             if self.send_button.isChecked():
                 self.send_button.setChecked(False)
                 self.sendMenuToggleClick(False)
-            # for l in self.label_buttons:
-            #     print(l.isChecked())
             if self.label_buttons[i].isChecked():
-                # if self.is_reload_mails:
-                #     self.reloadMails()
-                #     print("mails reloaded")
-                #     self.is_reload_mails = False
                 print(f"displaying label category '{self.labels[i]}'")
                 for index, label_button in enumerate(self.label_buttons):
                     if index != i:
@@ -179,7 +170,6 @@ class App(QWidget):
     def sendButtonClick(self):
         if self.sendClass:
             self.reloadButtonClick(True)
-            # to_addr = re.split(r'[, ]', self.toBox.text())
             to_addr = re.findall(r"[\w\.-]+@[\w\.-]+", self.toBox.text())
             subj = self.subjectBox.text()
             msg = self.messageBox.toPlainText()
@@ -197,7 +187,6 @@ class App(QWidget):
 
     def initUI(self):
 
-        # windows title and geometry set
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
@@ -207,12 +196,10 @@ class App(QWidget):
 
         labelLayout = QToolBar("Labels")
         self.label_buttons = [QAction(label, self) for label in self.labels]
-        # button_action.setStatusTip("This is your button")
         for i, label_button in enumerate(self.label_buttons):
             label_button.triggered.connect(self.toolbarButtonClick(i))
             labelLayout.addAction(label_button)
             label_button.setCheckable(True)
-            # labelLayout.addAction(label_button)
         self.label_buttons[1].setChecked(True)
 
         optionLayout = QToolBar("Options")
@@ -233,22 +220,17 @@ class App(QWidget):
         self.send_button.setCheckable(True)
         self.reload_button.setCheckable(True)
         logout_button.setCheckable(True)
-        # w1.setContentsMargins(0, 0, 0, 0)
-        # w2.setContentsMargins(0, 0, 0, 0)
-        # menuLayout.setSpacing(0)
         menuLayout.setContentsMargins(0, 0, 0, 0)
         optionLayout.setFixedWidth(106)
         menuLayout.addWidget(labelLayout, 10)
         menuLayout.addWidget(QLabel(self.my_mail), 1)
         menuLayout.addWidget(optionLayout)
 
-        # dataview with non editable columns (from, date, subject etc)
         self.dataView = QTreeView()
         self.dataView.setRootIsDecorated(False)
         self.dataView.setAlternatingRowColors(True)
         self.dataView.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
-        # content view to display complete email message
         self.contentView = QPlainTextEdit()
         self.contentView.setReadOnly(True)
 
@@ -267,7 +249,6 @@ class App(QWidget):
         self.sendLayout.setSpacing(0)
         self.sendLayout.setContentsMargins(0, 0, 0, 0)
 
-        # set layout of columns and content box horizontally
         dataLayout.addWidget(self.dataView, 3)
         dataLayout.addWidget(self.contentView, 2)
         dataLayout.addLayout(self.sendLayout)
@@ -279,7 +260,6 @@ class App(QWidget):
 
         self.sendButtonBox.clicked.connect(self.sendButtonClick)
 
-        # create mail model to add to data view
         self.model = self.createMailModel(self)
         self.dataView.setModel(self.model)
         self.dataView.clicked.connect(self.rowSelectionClick)
@@ -295,12 +275,9 @@ class App(QWidget):
         self.reloadButtonClick(True)
 
     def reloadMails(self):
-        # self.mails = mails
         self.model.removeRows(0, self.model.rowCount())
         self.addAllMails()
         self.autoColumnWidths()
-
-        # set headers text for the created model
 
     def createMailModel(self, parent):
         model = QStandardItemModel(0, self.total_cols, parent)
@@ -311,7 +288,6 @@ class App(QWidget):
         model.setHeaderData(self.MESSAGE, Qt.Horizontal, "Message")
         return model
 
-    # add content of mail to data view
     def addAllMails(self):
         today = date.today()
         today_date = today.strftime("%a, %d %b %Y")
@@ -322,8 +298,6 @@ class App(QWidget):
                 date_temp = mail[2]
             self.addMail(self.model, mail[0], mail[1], date_temp, mail[4], mail[5])
         if self.mails:
-            # msg = self.htmlString(
-            #     [self.mails[-1][0], self.mails[-1][1], self.mails[-1][4], self.mails[-1][5]])
             msg = self.htmlString(self.mails[-1])
             self.contentView.setPlainText("")
             self.contentView.textCursor().insertHtml(msg)
@@ -369,7 +343,6 @@ class App(QWidget):
 if __name__ == "__main__":
 
     msg = read_from_file("messages.data")
-    # print(len(msg))
     app = QApplication(sys.argv)
     ex = App(msg, my_mail="abc@gmail.com")
     sys.exit(app.exec_())

@@ -68,7 +68,10 @@
 A Thunderbird like Email Client built using SMTP and IMAP Protocols. GUI created using PyQt5.
 
 ![Email Client](images/screenshot.png)
+*view all emails*
+
 ![Message Sending](images/screenshot-message.png)
+*send email to a recipient*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

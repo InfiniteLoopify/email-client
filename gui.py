@@ -5,26 +5,46 @@ import threading
 
 from datetime import date
 from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import (QDate, QDateTime, QRegExp, QSortFilterProxyModel, Qt,
-                          QTime)
+from PyQt5.QtCore import QDate, QDateTime, QRegExp, QSortFilterProxyModel, Qt, QTime
 from PyQt5.QtGui import QStandardItemModel
-from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
-                             QGroupBox, QHBoxLayout, QLabel, QLineEdit, QPlainTextEdit, QTreeView, QVBoxLayout,
-                             QWidget, QAbstractItemView, QMenuBar, QPushButton, QMenu, QToolBar, QAction, QMainWindow, QStatusBar, QMessageBox)
+from PyQt5.QtWidgets import (
+    QApplication,
+    QCheckBox,
+    QComboBox,
+    QGridLayout,
+    QGroupBox,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QPlainTextEdit,
+    QTreeView,
+    QVBoxLayout,
+    QWidget,
+    QAbstractItemView,
+    QMenuBar,
+    QPushButton,
+    QMenu,
+    QToolBar,
+    QAction,
+    QMainWindow,
+    QStatusBar,
+    QMessageBox,
+)
+
 # import PyQt5.QtCore.Qt.WA_DeleteOnClose
 # from PyQt5 import *
 
 
 def read_from_file(filename):
     print(f"reading from file {filename}")
-    with open(filename, 'rb') as filehandle:
+    with open(filename, "rb") as filehandle:
         data = pickle.load(filehandle)
     return data
 
 
 def write_to_file(filename, data):
     print(f"writing to file {filename}")
-    with open(filename, 'wb') as filehandle:
+    with open(filename, "wb") as filehandle:
         pickle.dump(data, filehandle)
 
 
@@ -32,17 +52,27 @@ class App(QWidget):
 
     FROM, TO, DATE, SUBJECT, MESSAGE = range(5)
 
-    def __init__(self, mails_lst=[], my_mail="", send=None, receive=None, labels=None):
+    def __init__(
+        self,
+        file_name="messages.data",
+        mails_lst=None,
+        my_mail="",
+        send=None,
+        receive=None,
+        labels=None,
+    ):
         super().__init__()
         # self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.sendClass = send
         self.receiveClass = receive
         self.labelsClass = labels
         self.mails_lst = mails_lst
+        if mails_lst is None:
+            mails_lst = []
         self.mails = mails_lst[1]
         self.my_mail = my_mail
         self.labels = ["All", "Inbox", "Sent", "Trash"]
-        self.title = 'SMTP Email Client'
+        self.title = "SMTP Email Client"
         self.left = 0
         self.top = 0
         self.width = 1024
@@ -51,7 +81,7 @@ class App(QWidget):
         self.ret_val = False
         self.is_first_ret_val = True
         self.is_reload_mails = False
-        self.messages_file = 'messages.data'
+        self.messages_file = file_name
         self.initUI()
 
     def toolbarButtonClick(self, i):
@@ -74,15 +104,14 @@ class App(QWidget):
                 self.reloadMails()
             else:
                 self.label_buttons[i].setChecked(True)
+
         return buttonClick
 
     def parallelReloading(self):
         temp_mails_lst = []
         for label in self.labelsClass:
-            temp_mails_lst.append(
-                self.receiveClass.get_message(category=label))
-        index = [label.isChecked()
-                 for label in self.label_buttons].index(True)
+            temp_mails_lst.append(self.receiveClass.get_message(category=label))
+        index = [label.isChecked() for label in self.label_buttons].index(True)
         self.mails_lst = temp_mails_lst
         self.mails = temp_mails_lst[index]
         write_to_file(self.messages_file, self.mails_lst)
@@ -95,14 +124,12 @@ class App(QWidget):
         if self.receiveClass:
             if self.is_first_ret_val:
                 print("reloading all mails")
-                self.ret_val = threading.Thread(
-                    target=self.parallelReloading, args=())
+                self.ret_val = threading.Thread(target=self.parallelReloading, args=())
                 self.ret_val.start()
                 self.is_first_ret_val = False
             elif not self.ret_val.isAlive():
                 print("reloading all mails")
-                self.ret_val = threading.Thread(
-                    target=self.parallelReloading, args=())
+                self.ret_val = threading.Thread(target=self.parallelReloading, args=())
                 self.ret_val.start()
             else:
                 print("reloading already taking place in background")
@@ -153,11 +180,12 @@ class App(QWidget):
         if self.sendClass:
             self.reloadButtonClick(True)
             # to_addr = re.split(r'[, ]', self.toBox.text())
-            to_addr = re.findall(r'[\w\.-]+@[\w\.-]+', self.toBox.text())
+            to_addr = re.findall(r"[\w\.-]+@[\w\.-]+", self.toBox.text())
             subj = self.subjectBox.text()
             msg = self.messageBox.toPlainText()
             send_ret_val = threading.Thread(
-                target=self.parallelSending, args=(to_addr, subj, msg))
+                target=self.parallelSending, args=(to_addr, subj, msg)
+            )
             send_ret_val.start()
         else:
             print("unable to send as 'sendClass' missing")
@@ -189,11 +217,12 @@ class App(QWidget):
 
         optionLayout = QToolBar("Options")
         self.send_button = QAction(
-            QIcon("images/icons8-email-60.png"), "Send Mail", self)
+            QIcon("images/icons8-email-60.png"), "Send Mail", self
+        )
         self.reload_button = QAction(
-            QIcon("images/icons8-reset-60.png"), "Reload Page", self)
-        logout_button = QAction(
-            QIcon("images/icons8-shutdown-60.png"), "Logout", self)
+            QIcon("images/icons8-reset-60.png"), "Reload Page", self
+        )
+        logout_button = QAction(QIcon("images/icons8-shutdown-60.png"), "Logout", self)
 
         self.send_button.triggered.connect(self.sendMenuToggleClick)
         self.reload_button.triggered.connect(self.reloadButtonClick)
@@ -272,6 +301,7 @@ class App(QWidget):
         self.autoColumnWidths()
 
         # set headers text for the created model
+
     def createMailModel(self, parent):
         model = QStandardItemModel(0, self.total_cols, parent)
         model.setHeaderData(self.FROM, Qt.Horizontal, "From")
@@ -284,14 +314,13 @@ class App(QWidget):
     # add content of mail to data view
     def addAllMails(self):
         today = date.today()
-        today_date = today.strftime('%a, %d %b %Y')
+        today_date = today.strftime("%a, %d %b %Y")
         for mail in self.mails:
             if today_date == mail[2]:
                 date_temp = mail[3]
             else:
                 date_temp = mail[2]
-            self.addMail(self.model, mail[0], mail[1],
-                         date_temp, mail[4], mail[5])
+            self.addMail(self.model, mail[0], mail[1], date_temp, mail[4], mail[5])
         if self.mails:
             # msg = self.htmlString(
             #     [self.mails[-1][0], self.mails[-1][1], self.mails[-1][4], self.mails[-1][5]])
@@ -301,8 +330,8 @@ class App(QWidget):
 
     def addMail(self, model, mailFrom, mailTo, date, subject, message):
         model.insertRow(0)
-        mailFrom = ' '.join(map(str, mailFrom))
-        mailTo = ' '.join(map(str, mailTo))
+        mailFrom = " ".join(map(str, mailFrom))
+        mailTo = " ".join(map(str, mailTo))
         model.setData(model.index(0, self.FROM), mailFrom)
         model.setData(model.index(0, self.TO), mailTo)
         model.setData(model.index(0, self.DATE), date)
@@ -316,7 +345,7 @@ class App(QWidget):
         for i in range(self.total_cols):
             self.dataView.resizeColumnToContents(i)
             width = self.dataView.columnWidth(i)
-            self.dataView.setColumnWidth(i, width+width_plus)
+            self.dataView.setColumnWidth(i, width + width_plus)
         self.dataView.hideColumn(1)
         self.dataView.hideColumn(4)
 
@@ -337,9 +366,9 @@ class App(QWidget):
         return fr_addr + to_addr + subject + message
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    msg = read_from_file('messages.data')
+    msg = read_from_file("messages.data")
     # print(len(msg))
     app = QApplication(sys.argv)
     ex = App(msg, my_mail="abc@gmail.com")

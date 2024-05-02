@@ -171,5 +171,5 @@ poetry.toml
 pyrightconfig.json
 
 ###============= Custom =============###
-messages.data
+data/
 

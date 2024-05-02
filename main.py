@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-from src import send, receive, gui
+from email_client import send, receive, gui
 
 load_dotenv()
 

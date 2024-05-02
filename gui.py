@@ -118,7 +118,7 @@ class App(QWidget):
                 self.ret_val = threading.Thread(target=self.parallelReloading, args=())
                 self.ret_val.start()
                 self.is_first_ret_val = False
-            elif not self.ret_val.isAlive():
+            elif not self.ret_val.is_alive():
                 print("reloading all mails")
                 self.ret_val = threading.Thread(target=self.parallelReloading, args=())
                 self.ret_val.start()

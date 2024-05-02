@@ -216,7 +216,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Umair Shahab - [LinkedIn](linkedin-url) - umair.shahab.ahmed@gmail.com
+Umair Shahab - [LinkedIn][linkedin-url] - umair.shahab.ahmed@gmail.com
 
 Project Link: [https://github.com/InfiniteLoopify/email-client](https://github.com/InfiniteLoopify/email-client)
 

@@ -65,8 +65,10 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+A Thunderbird like Email Client built using SMTP and IMAP Protocols. GUI created using PyQt5.
 
-![Screenshot][product-screenshot]
+![Email Client](images/screenshot.png)
+![Message Sending](images/screenshot-message.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,13 +144,13 @@ To use the program, follow these steps:
     ```
 2. Store your Credentials in your environment variable file:
     ```bash
-    # Inside .env file
-    USERNAME=example@gmail.com
-    PASSWORD=my password
+    # inside .env file
+    EMAIL_USERNAME=example@gmail.com
+    EMAIL_PASSWORD=my password
     ```
     If you are using Gmail account, you might want to create a new [Gmail App Password](https://myaccount.google.com/apppasswords). For more details, visit [here](https://support.google.com/mail/answer/185833?hl=en).
 3. Make sure you have activated the virtual environment.
-2. Run the program:
+4. Run the program:
     ```bash
     python main.py
     ```
@@ -233,8 +235,6 @@ Project Link: [https://github.com/InfiniteLoopify/email-client](https://github.c
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: images/screenshot.png
-
 
 [contributors-shield]: https://img.shields.io/github/contributors/InfiniteLoopify/email-client.svg?style=for-the-badge
 [contributors-url]: https://github.com/InfiniteLoopify/email-client/graphs/contributors

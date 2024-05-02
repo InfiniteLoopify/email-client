@@ -9,8 +9,8 @@ load_dotenv()
 
 if __name__ == "__main__":
 
-    USERNAME = os.environ.get("USERNAME", "")
-    PASSWORD = os.environ.get("PASSWORD", "")
+    USERNAME = os.environ.get("EMAIL_USERNAME", "")
+    PASSWORD = os.environ.get("EMAIL_PASSWORD", "")
     labels = ['"[Gmail]/All Mail"', "Inbox", '"[Gmail]/Sent Mail"', '"[Gmail]/Trash"']
 
     receive = receive.Receive(USERNAME, PASSWORD)

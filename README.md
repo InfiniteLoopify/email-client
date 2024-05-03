@@ -274,8 +274,10 @@ Project Link: [https://github.com/InfiniteLoopify/email-client](https://github.c
 [JQuery-shield]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
 
-[Python-shield]: https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white
+[Python-shield]: https://img.shields.io/badge/Python-ffd54f?style=for-the-badge&logo=python&logoColor=428ac3
 [Python-url]: https://python.org
+[Python_alt-shield]: https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white
+
 [Javascript-shield]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
 [Javascript-url]: https://javascript.com
 [Django-shield]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
